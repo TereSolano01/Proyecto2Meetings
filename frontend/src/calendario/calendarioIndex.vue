@@ -58,7 +58,7 @@ export default {
   methods: {
     async allCalendario() {
       try {
-        const response = await axios.get('http://localhost:8000/server/calendario', {
+        const response = await axios.get('https://bookmeetings.000webhostapp.com/server/calendario', {
           headers: { 'Accept': 'application/json' }
         });
         console.log('Response data:', response.data); // Agrega esto
@@ -69,7 +69,7 @@ export default {
     },
     async deleteCalendario(id) {
       try {
-        await axios.post(`http://localhost:8000/server/calendario/${id}`, {
+        await axios.post(`https://bookmeetings.000webhostapp.com/server/calendario/${id}`, {
           _method: 'DELETE'
         }, {
           headers: { 'Content-Type': 'application/json' }

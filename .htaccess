@@ -1,8 +1,20 @@
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    AllowOverride All
-    RewriteBase /
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^frontend/(.*)$ /frontend/$1 [L]
-</IfModule>
+RewriteEngine On
+RewriteBase /
+
+# Si la solicitud apunta a un archivo o directorio existente, ¡no hagas nada!
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Redirigir todas las solicitudes al archivo index.php, excepto para /public/
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^ index.php [L]
+
+# Si la solicitud comienza con /public/, servir los archivos estáticos
+RewriteCond %{REQUEST_URI} ^/public/
+RewriteRule ^public/(.*)$ public/$1 [L]
+
+# Si la solicitud no coincide con un archivo en public, servir index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ /public/index.html [L]
