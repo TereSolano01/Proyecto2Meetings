@@ -1,0 +1,103 @@
+h2 {
+    text-align: center !important;
+    color: #727b72;
+}
+
+th{
+    text-align: center !important;
+    padding-right: 30px;
+    color: white;
+    background: #9fb09e;
+    border-radius: 4%;
+}
+td{
+    text-align: center !important;
+    border-bottom: 1px solid #9fb09e;
+}
+.container{
+    max-width: 55%;
+}
+
+table{
+    width: 100%;
+    text-align: center !important;
+    font-size: revert;
+    margin-top: 6%;
+}
+a {
+    color: #336030;
+}
+
+a:hover {
+    color: #a8bfa6;
+  }
+
+  *{padding: 0; margin: 0; box-sizing: border-box;}
+body{height: 900px;}
+header {
+	background: url('http://www.autodatz.com/wp-content/uploads/2017/05/Old-Car-Wallpapers-Hd-36-with-Old-Car-Wallpapers-Hd.jpg');
+	text-align: center;
+	width: 100%;
+	height: auto;
+	background-size: cover;
+	background-attachment: fixed;
+	position: relative;
+	overflow: hidden;
+	border-radius: 0 0 85% 85% / 30%;
+}
+header .overlay{
+	width: 100%;
+	height: 100%;
+
+	color: #FFF;
+	text-shadow: 1px 1px 1px #515f51;
+  background-color: #849283;
+	
+}
+
+h1 {
+	font-family: 'Dancing Script';
+	font-size: 80px;
+    padding-top: 18px;
+}
+
+h3, p {
+	font-family: 'Open Sans', sans-serif;
+	margin-bottom: 30px;
+}
+
+button {
+	border: none;
+	outline: none;
+	padding: 10px 20px;
+	border-radius: 50px;
+	color: #333;
+	background: #fff;
+	margin-bottom: 50px;
+	box-shadow: 0 3px 20px 0 #0000003b;
+}
+button:hover{
+	cursor: pointer;
+}
+
+.button-primary{
+background-color: #849283 !important;
+border-color: #839182 !important;
+text-align: center;
+}
+
+form{
+    text-align: center;
+}
+
+label{
+    font-size: x-large;
+    color: #4f574f;
+    border-bottom: 2px solid #839182 !important;
+}
+
+input{
+    font-size: large;
+    text-align: center;
+    border: 0px !important;
+}
