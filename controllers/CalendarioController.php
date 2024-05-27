@@ -8,7 +8,7 @@ class CalendarioController extends Controller {
     return Calendario::all();
   }  
   
-  public function store($request) {
+  public function store($request = NULL) {
     return Calendario::create($request);
   }  
   
@@ -16,7 +16,7 @@ class CalendarioController extends Controller {
     return Calendario::find($id);
   }  
   
-  public function update($request,$id) {  
+  public function update($request,$id = NULL) {  
     return Calendario::update($id,$request);
   }  
   

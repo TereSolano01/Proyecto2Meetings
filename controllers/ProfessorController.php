@@ -8,15 +8,16 @@ class ProfessorController extends Controller {
     return Professor::all();
   }  
   
-  public function store($request) {
-    return Professor::create($request);
+  public function store($param1 = NULL) {
+
+    return Professor::create($param1); 
   }  
   
   public function show($id) {  
     return Professor::find($id);
   }  
   
-  public function update($request,$id) {  
+  public function update($request,$id = NULL) {  
     return Professor::update($id,$request);
   }  
   

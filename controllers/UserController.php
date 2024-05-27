@@ -8,7 +8,7 @@ class UserController extends Controller {
     return User::all();
   }  
   
-  public function store($request) {
+  public function store($request  = NULL) {
     return User::create($request);
   }  
   
@@ -16,7 +16,7 @@ class UserController extends Controller {
     return User::find($id);
   }  
   
-  public function update($request,$id) {  
+  public function update($request,$id = NULL) {  
     return User::update($id,$request);
   }  
   

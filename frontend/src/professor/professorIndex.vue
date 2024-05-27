@@ -47,7 +47,7 @@
     methods: {
         async allProfessor() {
     try {
-      const response = await axios.get('http://localhost:8000/server/professor', {
+      const response = await axios.get('https://meetingscalendar.000webhostapp.com/server/professor', {
         headers: { 'Accept': 'application/json' }
       });
       console.log('Response data:', response.data); // Agrega esto
@@ -58,7 +58,7 @@
   },
       async deleteProfessor(id) {
         try {
-          await axios.post(`http://localhost:8000/server/professor/${id}`, {
+          await axios.post(`https://meetingscalendar.000webhostapp.com/server/professor/${id}`, {
             _method: 'DELETE'
           }, {
             headers: { 'Content-Type': 'application/json' }
