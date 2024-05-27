@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-      <div style="margin-top: 5%">
+      <div>
         <h2>{{ title }}</h2>
         <table>
           <thead>
