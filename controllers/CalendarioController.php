@@ -4,6 +4,17 @@
 
 class CalendarioController extends Controller {
   
+  public function home()
+  {
+    return view(
+      'calendario/index',
+      [
+        'reuniones' => Calendario::all(),
+        'title' => 'Reuniones'
+      ]
+    );
+  }
+
   public function index() {  
     return Calendario::all();
   }  

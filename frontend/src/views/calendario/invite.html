@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!-- file: views/reunion/show.html -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{title}}</title>
+   {{> navbar}}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/footer.css" />
+<link rel="stylesheet" href="/css/show.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+</style>
+</head>
+<body>
+ <div class="container">
+  <div class="row">
+   <div class="eleven columns">
+    <h2>{{title}}</h2>
+    <form>
+     {{#reunion}}
+     <div class="row">
+      <div class="six columns">
+       <div class="label-with-icon">
+         <i class="fas fa-heading"></i>
+         <label for="titleInput">Title:</label>
+       </div>
+       <input class="u-full-width" type="text" readonly
+          name="title" value="{{titulo}}">
+      </div>
+      <div class="six columns">
+       <div class="label-with-icon">
+         <i class="fas fa-file-alt"></i>
+         <label for="descriptionInput">Description:</label>
+       </div>
+       <input class="u-full-width" type="text" readonly
+          name="description" value="{{descripcion}}">
+      </div>
+     </div>
+     <div class="row">
+      <div class="six columns">
+       <div class="label-with-icon">
+         <i class="far fa-calendar-alt"></i>
+         <label for="dateInput">Date:</label>
+       </div>
+       <input class="u-full-width" type="text" readonly
+          name="date" value="{{dia}}/{{mes}}/{{anio}}">
+      </div>
+      <div class="six columns">
+       <div class="label-with-icon">
+         <i class="far fa-clock"></i>
+         <label for="timeInput">Time:</label>
+       </div>
+       <input class="u-full-width" type="text" readonly
+         name="time" value="{{hora_inicio}} - {{hora_fin}}">
+      </div>
+     </div>
+
+      <div class="">
+       <div class="label-with-icon">
+         <i class="fas fa-map-marker-alt"></i>
+         <label for="locationInput">Location:</label>
+       </div>
+       <input class="u-full-width" type="text" readonly
+         name="location" value="{{ubicacion}}">
+      </div>
+      
+      <div class="row" style="padding-top: 2%;">
+        <div class="twelve columns">
+          <button type="button" class="button button-primary" onclick="acceptMeeting()">Aceptar</button>
+          <button type="button" class="button button-danger" onclick="rejectMeeting()">Rechazar</button>
+          <a class="button button-primary" href="/calendario">Volver</a>
+        </div>
+      </div>
+     {{/reunion}}
+    </form>
+   </div>
+  </div>
+ </div>
+ {{> footer}}
+
+ <script>
+   function acceptMeeting() {
+     // Aquí puedes agregar lógica para aceptar la reunión
+     alert('Reunión aceptada');
+   }
+
+   function rejectMeeting() {
+     // Aquí puedes agregar lógica para rechazar la reunión
+     alert('Reunión rechazada');
+   }
+ </script>
+</body>
+</html>

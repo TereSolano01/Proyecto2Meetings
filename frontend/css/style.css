@@ -1,6 +1,6 @@
 h2 {
     text-align: center !important;
-    color: #727b72;
+    color: #161b33;
 }
 
 th{
@@ -12,7 +12,7 @@ th{
 }
 td{
     text-align: center !important;
-    border-bottom: 1px solid #9fb09e;
+    border-bottom: 1px solid #161b33;
 }
 .container{
     max-width: 55%;
@@ -25,7 +25,7 @@ table{
     margin-top: 6%;
 }
 a {
-    color: #336030;
+    color: #0d0c1d;
 }
 
 a:hover {
@@ -81,8 +81,8 @@ button:hover{
 }
 
 .button-primary{
-background-color: #849283 !important;
-border-color: #839182 !important;
+background-color: #161b33 !important;
+border-color: #f1dac4 !important;
 text-align: center;
 }
 
@@ -92,8 +92,8 @@ form{
 
 label{
     font-size: x-large;
-    color: #4f574f;
-    border-bottom: 2px solid #839182 !important;
+    color: #0d0c1d;
+    border-bottom: 2px solid #161b33 !important;
 }
 
 input{

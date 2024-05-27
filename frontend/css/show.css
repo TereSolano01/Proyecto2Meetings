@@ -1,0 +1,50 @@
+.row{
+    margin-bottom: 0 !important;
+}
+
+h2 {
+    text-align: center !important;
+    color: #161b33;
+    padding-top: 3%;
+}
+
+label {
+    font-size: x-large;
+    color: #161b33;
+    border-bottom: 2px solid #f1dac4 !important;
+}
+
+.label-with-icon {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px; /* Reduce el espacio entre cada label e input */
+  }
+
+  .label-with-icon i {
+    margin-right: 5px;
+  }
+
+  .label-with-icon {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .label-with-icon i {
+    margin-right: 5px;
+  }
+
+
+  label {
+    text-align: right;
+    margin-right: 20px;
+    font-weight: bold;
+  }
+
+  input {
+    width: 65%;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }

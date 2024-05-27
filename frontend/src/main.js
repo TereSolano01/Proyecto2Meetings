@@ -4,14 +4,23 @@ import { createApp } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router'
 import App from './App.vue'
 
+import '../css/footer.css';
+import '../css/home.css';
+import '../css/login.css';
+import '../css/navBar.css';
 import '../css/normalize.css';
+import '../css/reuniones.css';
+import '../css/show.css';
 import '../css/skeleton.css';
+import '../css/style.css';
 
 import professorIndex from './professor/professorIndex.vue'
+import home from './views/home.vue'
 import professorDetails from './professor/professorDetails.vue'
 import calendarioIndex from './calendario/calendarioIndex.vue'
 import calendarioDetails from './calendario/calendarioDetails.vue'
-
+import login from './views/auth/login.vue'
+import registration from './views/auth/registration.vue'
 
 const routes = [
   { path: '/professor', component: professorIndex, props: true},
@@ -24,7 +33,9 @@ const routes = [
   { path: '/calendario/edit/:id', component: calendarioDetails, props: {edit: true}},
   { path: '/calendario/create', component: calendarioDetails, props: {create: true}},
   { path: '/calendario/delete/:id', component: calendarioDetails, props: {delete: true}},
-  { path: '/', component: professorIndex, props: true},
+  { path: '/login', component: login, props: {props: true}},
+  { path: '/register', component: registration, props: {props: true}},
+  { path: '/', component: home, props: true},
 ]
 
 

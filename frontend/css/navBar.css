@@ -1,0 +1,33 @@
+.leftOptions {
+    margin-left: 178px !important;
+}
+
+.logoutBtn {
+    margin-right: 80px;
+}
+
+.button{
+    color: #ebeae9 !important;
+    border-color: #F1DAC4 !important;
+    background-color: #161B33 !important;
+}
+
+.button:hover {
+    background-color: #f1dac4d1 !important;
+}
+
+.button a:hover {
+    color: #0D0C1D;
+}
+
+.button hover {
+    color: #0D0C1D !important;
+}
+
+a:hover {
+    color: #0D0C1D !important;
+}
+
+.btn:hover {
+    background-color: #f1dac4d1 !important;
+}
