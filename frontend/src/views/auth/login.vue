@@ -28,6 +28,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   data() {
     return {
@@ -37,13 +39,32 @@ export default {
     };
   },
   methods: {
-    login() {
-    
+    async login() {
+      try {
+        // Realizar una solicitud GET para obtener los usuarios
+        const response = await axios.get('https://meetingscalendar.000webhostapp.com/server/user', {
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        const users = response.data;
+
+        const user = users.find(user => user.email === this.email && user.password === this.password);
+
+        if (user) {
+          window.location.href = '/calendario';
+        } else {
+          this.error = true;
+        }
+      } catch (error) {
+        console.error("Login error: ", error); 
+        this.error = true;
+      }
     }
   }
 };
 </script>
-
 
 <link rel="stylesheet" href="/css/skeleton.css" />
 <link rel="stylesheet" href="/css/login.css" />
