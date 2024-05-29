@@ -17,12 +17,11 @@ public function login() {
 
   $url = 'https://meetingscalendar.000webhostapp.com/server/user';
   $users = $this->getUsersFromAPI($url);
-  
+
   error_log("Users fetched from API: " . print_r($users, true));
 
   foreach ($users as $user) {
       if ($user->email == $email && $user->password == $password) {
-          // Assuming you have a method to log in the user
           Auth::login($user);
           error_log("Login successful for user: $email");
           return response()->json(['success' => true]);

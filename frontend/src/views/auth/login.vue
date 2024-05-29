@@ -41,7 +41,6 @@ export default {
   methods: {
     async login() {
       try {
-        // Realizar una solicitud GET para obtener los usuarios
         const response = await axios.get('https://meetingscalendar.000webhostapp.com/server/user', {
           headers: {
             'Accept': 'application/json'
