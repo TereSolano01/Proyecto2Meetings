@@ -34,7 +34,7 @@ const routes = [
   { path: '/calendario/edit/:id', component: calendarioDetails, props: {edit: true}},
   { path: '/calendario/create', component: calendarioCreate, props: {create: true}},
   { path: '/calendario/delete/:id', component: calendarioDetails, props: {delete: true}},
-  { path: '/login', component: login, props: {props: true}},
+  { path: '/login', component: login, props: { props: false } },
   { path: '/register', component: registration, props: {props: true}},
   { path: '/', component: home, props: true},
 ]

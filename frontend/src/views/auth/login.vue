@@ -40,27 +40,28 @@ export default {
   },
   methods: {
     async login() {
-      try {
-        const response = await axios.get('https://meetingscalendar.000webhostapp.com/server/user', {
-          headers: {
-            'Accept': 'application/json'
-          }
-        });
-
-        const users = response.data;
-        const user = users.find(user => user.email === this.email && user.password === this.password);
-
-        if (user) {
-          localStorage.setItem('userId', user.id);
-          this.$router.push('/calendario');
-        } else {
-          this.error = true;
-        }
-      } catch (error) {
-        console.error("Login error: ", error); 
-        this.error = true;
+  try {
+    const response = await axios.get('https://meetingscalendar.000webhostapp.com/server/user', {
+      headers: {
+        'Accept': 'application/json'
       }
+    });
+
+    const users = response.data;
+    const user = users.find(user => user.email === this.email && user.password === this.password);
+
+    if (user) {
+      localStorage.setItem('userId', user.id);
+      this.$router.push('/calendario');
+    } else {
+      this.error = true;
     }
+  } catch (error) {
+    console.error("Login error: ", error); 
+    this.error = true;
+  }
+}
+
   }
 };
 </script>

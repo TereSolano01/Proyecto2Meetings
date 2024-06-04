@@ -57,7 +57,7 @@ export default {
   methods: {
     async allCalendario() {
       try {
-        const response = await axios.get('http://localhost:800/server/calendario', {
+        const response = await axios.get('https://meetingscalendar.000webhostapp.com/server/calendario', {
           headers: { 'Accept': 'application/json' }
         });
         const userId = localStorage.getItem('userId');
@@ -72,7 +72,7 @@ export default {
     },
     async deleteCalendario(id) {
       try {
-        await axios.post(`http://localhost:800/server/calendario/${id}`, {
+        await axios.post(`https://meetingscalendar.000webhostapp.com/server/calendario/${id}`, {
           _method: 'DELETE'
         }, {
           headers: { 'Content-Type': 'application/json' }

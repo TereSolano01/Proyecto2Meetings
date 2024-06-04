@@ -63,18 +63,17 @@
     },
     methods: {
       async createEvento() {
-        // Verificar si la hora de finalización es posterior a la hora de inicio
         if (this.evento.hora_inicio >= this.evento.hora_fin) {
           console.error('La hora de finalización debe ser posterior a la hora de inicio.');
-          return; // Salir del método si la validación falla
+          return; 
         }
-  
-        // Separar la fecha en sus componentes (día, mes, año)
+
         const fechaParts = this.evento.fecha.split('-');
         const dia = parseInt(fechaParts[2]);
         const mes = parseInt(fechaParts[1]);
         const anio = parseInt(fechaParts[0]);
-  
+        var idUser = this.userId
+
         try {
           const response = await axios.post('https://meetingscalendar.000webhostapp.com/server/calendario', {
             titulo: this.evento.titulo,
@@ -85,11 +84,10 @@
             hora_inicio: this.evento.hora_inicio,
             hora_fin: this.evento.hora_fin,
             ubicacion: this.evento.ubicacion,
-            user_id: this.userId
+            user_id: idUser
           });
   
           if (response.data && response.data.message) {
-            // Reiniciar los campos del formulario después de enviarlos
             this.evento = {
               titulo: '',
               descripcion: '',
@@ -98,7 +96,6 @@
               hora_fin: '',
               ubicacion: ''
             };
-            // Redirigir al calendario después de crear la reunión
             this.$router.push('/calendario');
           } else {
             window.location.href = '/calendario';
