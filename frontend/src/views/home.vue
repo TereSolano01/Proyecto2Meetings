@@ -11,17 +11,16 @@
   export default {
     data() {
       return {
-        loggedIn: false // Aquí debes implementar la lógica para determinar si el usuario está autenticado
+        loggedIn: false 
       };
     },
     methods: {
       createMeeting() {
-        // Lógica para crear la reunión
-        this.$router.push('/calendario/create'); // Ajusta esta ruta según tu configuración
+
+        this.$router.push('/calendario/create'); 
       },
       redirectToLogin() {
-        // Redirige al usuario a la página de inicio de sesión
-        this.$router.push('/login'); // Ajusta esta ruta según tu configuración
+        this.$router.push('/login'); 
       }
     }
   };

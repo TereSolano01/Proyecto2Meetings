@@ -19,6 +19,7 @@ import home from './views/home.vue'
 import professorDetails from './professor/professorDetails.vue'
 import calendarioIndex from './calendario/calendarioIndex.vue'
 import calendarioDetails from './calendario/calendarioDetails.vue'
+import calendarioCreate from './views/calendario/create.vue'
 import login from './views/auth/login.vue'
 import registration from './views/auth/registration.vue'
 
@@ -31,7 +32,7 @@ const routes = [
   { path: '/calendario', component: calendarioIndex, props: true},
   { path: '/calendario/show/:id', component: calendarioDetails, props: {show: true}},
   { path: '/calendario/edit/:id', component: calendarioDetails, props: {edit: true}},
-  { path: '/calendario/create', component: calendarioDetails, props: {create: true}},
+  { path: '/calendario/create', component: calendarioCreate, props: {create: true}},
   { path: '/calendario/delete/:id', component: calendarioDetails, props: {delete: true}},
   { path: '/login', component: login, props: {props: true}},
   { path: '/register', component: registration, props: {props: true}},

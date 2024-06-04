@@ -28,7 +28,6 @@
             <td>{{ calend.hora_fin }}</td>
             <td>{{ calend.ubicacion }}</td>
             <td>{{ calend.user_id }}</td>
-
             <td>
               <router-link class="button" :to="'/calendario/show/' + calend.id">Show</router-link>
               <router-link class="button" :to="'/calendario/edit/' + calend.id">Edit</router-link>
@@ -58,18 +57,22 @@ export default {
   methods: {
     async allCalendario() {
       try {
-        const response = await axios.get('https://meetingscalendar.000webhostapp.com/server/calendario', {
+        const response = await axios.get('http://localhost:800/server/calendario', {
           headers: { 'Accept': 'application/json' }
         });
-        console.log('Response data:', response.data); // Agrega esto
-        this.calendarios = response.data;
+        const userId = localStorage.getItem('userId');
+        if (userId) {
+          this.calendarios = response.data.filter(calend => calend.user_id == userId);
+        } else {
+          this.calendarios = [];
+        }
       } catch (error) {
         console.error('Error fetching calendarios:', error);
       }
     },
     async deleteCalendario(id) {
       try {
-        await axios.post(`https://meetingscalendar.000webhostapp.com/server/calendario/${id}`, {
+        await axios.post(`http://localhost:800/server/calendario/${id}`, {
           _method: 'DELETE'
         }, {
           headers: { 'Content-Type': 'application/json' }
@@ -82,7 +85,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-/* Puedes agregar tus estilos aquí */
-</style>

@@ -48,11 +48,11 @@ export default {
         });
 
         const users = response.data;
-
         const user = users.find(user => user.email === this.email && user.password === this.password);
 
         if (user) {
-          window.location.href = '/calendario';
+          localStorage.setItem('userId', user.id);
+          this.$router.push('/calendario');
         } else {
           this.error = true;
         }
