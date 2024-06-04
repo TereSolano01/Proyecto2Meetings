@@ -40,28 +40,34 @@ export default {
   },
   methods: {
     async login() {
-  try {
-    const response = await axios.get('https://meetingscalendar.000webhostapp.com/server/user', {
-      headers: {
-        'Accept': 'application/json'
-      }
-    });
+      try {
+        const response = await axios.get('https://meetingscalendar.000webhostapp.com/server/user', {
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
 
-    const users = response.data;
-    const user = users.find(user => user.email === this.email && user.password === this.password);
+        const users = response.data;
+        const user = users.find(user => user.email === this.email && user.password === this.password);
 
-    if (user) {
+        if (user) {
+          if (user) {
+            localStorage.clear(); // Limpiar localStorage antes de guardar el nuevo userId
       localStorage.setItem('userId', user.id);
+      console.log('User logged in. UserId:', user.id);
+      await this.$nextTick(); // Esperar a que se actualice el localStorage
+      this.$emit('loggedIn', user.id);
       this.$router.push('/calendario');
-    } else {
-      this.error = true;
-    }
-  } catch (error) {
-    console.error("Login error: ", error); 
-    this.error = true;
-  }
 }
 
+        } else {
+          this.error = true;
+        }
+      } catch (error) {
+        console.error("Login error: ", error); 
+        this.error = true;
+      }
+    }
   }
 };
 </script>

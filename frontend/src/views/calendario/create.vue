@@ -63,16 +63,18 @@
     },
     methods: {
       async createEvento() {
-        if (this.evento.hora_inicio >= this.evento.hora_fin) {
-          console.error('La hora de finalización debe ser posterior a la hora de inicio.');
-          return; 
-        }
+      if (this.evento.hora_inicio >= this.evento.hora_fin) {
+        console.error('La hora de finalización debe ser posterior a la hora de inicio.');
+        return; 
+      }
 
-        const fechaParts = this.evento.fecha.split('-');
-        const dia = parseInt(fechaParts[2]);
-        const mes = parseInt(fechaParts[1]);
-        const anio = parseInt(fechaParts[0]);
-        var idUser = this.userId
+      const fechaParts = this.evento.fecha.split('-');
+      const dia = parseInt(fechaParts[2]);
+      const mes = parseInt(fechaParts[1]);
+      const anio = parseInt(fechaParts[0]);
+      
+      const userId = parseInt(localStorage.getItem('userId'));
+      console.log('Insert. UserId:', userId);
 
         try {
           const response = await axios.post('https://meetingscalendar.000webhostapp.com/server/calendario', {
@@ -84,7 +86,7 @@
             hora_inicio: this.evento.hora_inicio,
             hora_fin: this.evento.hora_fin,
             ubicacion: this.evento.ubicacion,
-            user_id: idUser
+            user_id: userId
           });
   
           if (response.data && response.data.message) {
