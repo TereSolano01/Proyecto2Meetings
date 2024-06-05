@@ -74,7 +74,6 @@
       const anio = parseInt(fechaParts[0]);
       
       const userId = parseInt(localStorage.getItem('userId'));
-      console.log('Insert. UserId:', userId);
 
         try {
           const response = await axios.post('https://meetingscalendar.000webhostapp.com/server/calendario', {

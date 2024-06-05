@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div style="margin-top: 5%">
+    <div>
       <h2>{{ title }}</h2>
       <table>
         <thead>
@@ -58,7 +58,7 @@ export default {
     async allCalendario() {
       try {
         const response = await axios.get('https://meetingscalendar.000webhostapp.com/server/calendario', {
-          headers: { 'Accept': 'application/json' }
+          headers: { 'Accept': 'application/json' },
         });
         const userId = localStorage.getItem('userId');
         if (userId) {
@@ -71,17 +71,24 @@ export default {
       }
     },
     async deleteCalendario(id) {
-      try {
-        await axios.post(`https://meetingscalendar.000webhostapp.com/server/calendario/${id}`, {
-          _method: 'DELETE'
-        }, {
-          headers: { 'Content-Type': 'application/json' }
-        });
-        this.allCalendario();
-      } catch (error) {
-        console.error('Error deleting calendario:', error);
-      }
-    }
+      const https = require('https');
+  try {
+    const agent = new https.Agent({ 
+      rejectUnauthorized: false,
+      http2: false
+    });
+
+    const response = await axios.delete(`https://meetingscalendar.000webhostapp.com/server/calendario/${id}`, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      httpsAgent: agent 
+    });
+    console.log('Solicitud DELETE exitosa:', response.data);
+  } catch (error) {
+    console.error('Error al realizar la solicitud DELETE:', error.message);
+  }
+}
   }
 };
 </script>

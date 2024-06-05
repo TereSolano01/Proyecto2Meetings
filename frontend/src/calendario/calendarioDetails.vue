@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div class="eleven column" style="margin-top: 5%">
+    <div class="eleven column">
       <h2>{{ title }}</h2>
       <form>
         <div class="row">
@@ -36,8 +36,8 @@
           </div>
         </div>
         <router-link class="button button-primary" to="/calendario">Back</router-link>
-        <a v-if='edit' class="button button-primary" style="float: right" v-on:click="updateCalendario()">Update</a>
-        <a v-if='create' class="button button-primary" style="float: right" v-on:click="createCalendario()">Create</a>
+        <a v-if='edit' class="button button-primary" style="float: right" v-on:click="updateCalendario">Update</a>
+        <a v-if='create' class="button button-primary" style="float: right" v-on:click="createCalendario">Create</a>
       </form>
     </div>
   </div>
@@ -77,10 +77,9 @@ export default {
     'calendar.anio': 'updateFechaModel'
   },
   methods: {
-    fetchCalendario: function(id) {
+    fetchCalendario(id) {
       axios.get(`https://meetingscalendar.000webhostapp.com/server/calendario/${id}`)
         .then(response => {
-          console.log('Datos recibidos:', response.data);
           if (Array.isArray(response.data) && response.data.length > 0) {
             this.calendar = response.data[0];
             this.fecha = `${this.calendar.anio}-${String(this.calendar.mes).padStart(2, '0')}-${String(this.calendar.dia).padStart(2, '0')}`;
@@ -90,20 +89,34 @@ export default {
           console.error('There was an error fetching the calendario!', error);
         });
     },
-    updateCalendario: function() {
-      this.calendar['_method'] = 'PUT';
-      var id = this.$route.params.id;
-      axios.post(`https://meetingscalendar.000webhostapp.com/server/calendario/${id}`, this.calendar, {
-        headers: { 'Content-Type': 'application/json' }
-      })
-        .then(() => {
-          this.$router.push('/calendario');
-        })
-        .catch(error => {
-          console.error('There was an error updating the calendario!', error);
+
+    async updateCalendario() {
+      const eventId = this.$route.params.id;
+      try {
+        const response = await axios.put(`https://meetingscalendar.000webhostapp.com/server/calendario/${eventId}`, {
+          titulo: this.calendar.titulo,
+          descripcion: this.calendar.descripcion,
+          dia: this.calendar.dia,
+          mes: this.calendar.mes,
+          anio: this.calendar.anio,
+          hora_inicio: this.calendar.hora_inicio,
+          hora_fin: this.calendar.hora_fin,
+          ubicacion: this.calendar.ubicacion,
+          user_id: this.calendar.user_id
         });
+
+        if (response.status === 200) {
+          console.log('Datos actualizados');
+          this.$router.push('/calendario');
+        } else {
+          console.error('Update failed:', response.data);
+        }
+      } catch (error) {
+        console.error('Update error:', error.message);
+      }
     },
-    createCalendario: function() {
+
+    createCalendario() {
       axios.post('https://meetingscalendar.000webhostapp.com/server/calendario', this.calendar, {
         headers: { 'Content-Type': 'application/json' }
       })
@@ -114,12 +127,14 @@ export default {
           console.error('There was an error creating the calendario!', error);
         });
     },
+
     updateFecha() {
       const [anio, mes, dia] = this.fecha.split('-');
       this.calendar.anio = anio;
       this.calendar.mes = mes;
       this.calendar.dia = dia;
     },
+
     updateFechaModel() {
       if (this.calendar.anio && this.calendar.mes && this.calendar.dia) {
         this.fecha = `${this.calendar.anio}-${String(this.calendar.mes).padStart(2, '0')}-${String(this.calendar.dia).padStart(2, '0')}`;
