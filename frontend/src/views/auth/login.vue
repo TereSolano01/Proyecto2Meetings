@@ -1,9 +1,10 @@
 <template>
-  <div id="loginDiv">
+  <div id="bodyLogin">
+    <div id="loginDiv">
     <h4>Login Page</h4>
          <div class="border-bottom"></div>
     <p v-if="error">User or password invalid. Try Again.</p>
-    <form @submit.prevent="login">
+    <form id="loginForm" @submit.prevent="login">
       <div class="row">
         <div class="six columns">
           <label for="email">Email</label>
@@ -26,6 +27,8 @@
       </div>
     </form>
   </div>
+  </div>
+
 </template>
 
 <script>
@@ -53,10 +56,10 @@ export default {
 
         if (user) {
           if (user) {
-            localStorage.clear(); // Limpiar localStorage antes de guardar el nuevo userId
+            localStorage.clear(); 
       localStorage.setItem('userId', user.id);
       console.log('User logged in. UserId:', user.id);
-      await this.$nextTick(); // Esperar a que se actualice el localStorage
+      await this.$nextTick();
       this.$emit('loggedIn', user.id);
       this.$router.push('/calendario');
 }

@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <form @submit.prevent="register" class="container">
-      <h4>Registration Page</h4>
+  <div id="registrationDiv">
+    <form @submit.prevent="register" class="container" style="width: 31%;" id="formRegis">
+      <h4 style="padding-bottom: 10%;">Registration Page</h4>
       <div class="row"> 
         <div class="six columns">  
           <label for="name">Full name</label>  
@@ -20,7 +20,7 @@
           <input v-model="password" class="u-full-width" type="password" name="password" required>  
         </div>
       </div>
-      <input class="button" type="submit" value="Submit">
+      <input class="button" type="submit" value="Submit" style="width: 20%;">
       <p v-if="error" class="error">{{ error }}</p>
       <p v-if="success" class="success">{{ success }}</p>
     </form>
@@ -72,15 +72,26 @@ export default {
 </script>
 
 <style>
-.error {
-  color: red;
+#registrationDiv{
+  background-image: url('../css/pexels-leeloothefirst-5386754.jpg');
+    background-color: rgba(255, 255, 255, 0.2);
+    background-size: cover;
+    width: 100%;
+    height: 100%;
 }
-.success {
-  color: green;
+
+#formRegis{
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    height: 74%;
+    background-color: #ffffffd6;
+    padding: 23px;
+    border-radius: 16px;
 }
+
 </style>
 
-<link rel="stylesheet" href="/css/skeleton.css" />
-<link rel="stylesheet" href="/css/login.css" />
-<link rel="stylesheet" href="/css/home.css" />
-<link rel="stylesheet" href="/css/footer.css" />
