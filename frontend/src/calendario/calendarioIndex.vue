@@ -1,8 +1,8 @@
 <template>
   <div class="row">
-    <div>
-      <h2>{{ title }}</h2>
-      <table>
+    <div class="table-container"> 
+      <h2 style="padding-bottom: 1%;">{{ title }}</h2>
+      <table class="custom-table"> 
         <thead>
           <tr>
             <th>Titulo</th>
@@ -90,3 +90,14 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.table-container {
+  width: 65%;
+  margin: 0 auto;
+}
+
+.custom-table {
+  width: 100%;
+}
+</style>

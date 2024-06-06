@@ -1,7 +1,7 @@
 <template>
     <div>
       <h2>{{ title }}</h2>
-      <form @submit.prevent="createEvento">
+      <form id="myForm" @submit.prevent="createEvento">
         <div class="row">
           <div class="six columns">
             <label for="titulo">Título</label>
@@ -63,10 +63,6 @@
     },
     methods: {
       async createEvento() {
-      if (this.evento.hora_inicio >= this.evento.hora_fin) {
-        console.error('La hora de finalización debe ser posterior a la hora de inicio.');
-        return; 
-      }
 
       const fechaParts = this.evento.fecha.split('-');
       const dia = parseInt(fechaParts[2]);
@@ -113,3 +109,13 @@
   };
   </script>
   
+  <style scoped>
+#myForm {
+  width: 35%;
+  margin: 0 auto; 
+}
+
+#label{
+  text-align: center !important;
+}
+</style>

@@ -116,17 +116,48 @@ export default {
       }
     },
 
-    createCalendario() {
-      axios.post('https://meetingscalendar.000webhostapp.com/server/calendario', this.calendar, {
-        headers: { 'Content-Type': 'application/json' }
-      })
-        .then(() => {
-          this.$router.push('/calendario');
-        })
-        .catch(error => {
-          console.error('There was an error creating the calendario!', error);
-        });
-    },
+    async createEvento() {
+      const fechaParts = this.evento.fecha.split('-');
+      const dia = parseInt(fechaParts[2]);
+      const mes = parseInt(fechaParts[1]);
+      const anio = parseInt(fechaParts[0]);
+      
+      const userId = parseInt(localStorage.getItem('userId'));
+
+        try {
+          const response = await axios.post('https://meetingscalendar.000webhostapp.com/server/calendario', {
+            titulo: this.evento.titulo,
+            descripcion: this.evento.descripcion,
+            dia: dia,
+            mes: mes,
+            anio: anio,
+            hora_inicio: this.evento.hora_inicio,
+            hora_fin: this.evento.hora_fin,
+            ubicacion: this.evento.ubicacion,
+            user_id: userId
+          });
+  
+          if (response.data && response.data.message) {
+            this.evento = {
+              titulo: '',
+              descripcion: '',
+              fecha: '',
+              hora_inicio: '',
+              hora_fin: '',
+              ubicacion: ''
+            };
+            this.$router.push('/calendario');
+          } else {
+            window.location.href = '/calendario';
+          }
+        } catch (error) {
+          if (error.response && error.response.data && error.response.data.error) {
+            console.error('Error en la solicitud:', error.response.data.error);
+          } else {
+            console.error('Error de comunicación con el servidor:', error.message);
+          }
+        }
+      },
 
     updateFecha() {
       const [anio, mes, dia] = this.fecha.split('-');
