@@ -1,7 +1,7 @@
 <template>
-         <h4>Login Page</h4>
-         <div class="border-bottom"></div>
   <div id="loginDiv">
+    <h4>Login Page</h4>
+         <div class="border-bottom"></div>
     <p v-if="error">User or password invalid. Try Again.</p>
     <form @submit.prevent="login">
       <div class="row">
@@ -18,10 +18,10 @@
       </div>
       <div class="row" style="padding-top: 5%;">
         <div class="three columns" >
-          <input class="button" type="submit" value="Login" style="width: 16%;">
+          <input class="button" type="submit" value="Login" style="width: 19%;">
         </div>
         <div class="three columns">
-          <router-link to="/register" class="button" style="width: 22%;">Registration</router-link>
+          <router-link to="/register" class="button" style="width: 28%;">Registration</router-link>
         </div>
       </div>
     </form>

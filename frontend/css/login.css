@@ -4,8 +4,11 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 35%;
-    
+    width: 30%;
+    height: 74%;
+    background-color: #ffffffd6;
+    padding: 23px;
+    border-radius: 16px;
 }
 
 .container .six.columns{
@@ -24,7 +27,7 @@ h4{
     text-align: center;
     font-size: xxx-large !important;
     padding-top: 5%;
-    color: #232f69;
+    color: #161B33;
 }
 
 input{
@@ -34,20 +37,19 @@ input{
 
 .u-full-width{
     border-bottom: solid !important;
+    background-color: #0c252b00 !important;
 }
 
 .border-bottom {
     position: relative;
   }
-  
-  .border-bottom::after {
-    content: "";
-    display: block;
-    width: 50%; 
-    height: 3px;
-    background-color: #161B33; 
-    border-radius: 10px; 
-    position: absolute;
-    bottom: 0;
-    left: 25%; 
-  }
+
+  body {
+    background-image: url('../css/pexels-leeloothefirst-5386754.jpg');
+    background-color: rgba(255, 255, 255, 0.2);
+    background-size: cover;
+}
+
+form{
+    padding-top: 15% !important;
+}
