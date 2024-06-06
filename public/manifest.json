@@ -1,10 +1,13 @@
 {
   "index.html": {
-    "file": "main.59592a5a.js",
+    "file": "main.7a40e900.js",
     "src": "index.html",
     "isEntry": true,
     "css": [
-      "main.f7a0b78b.css"
+      "main.6bbefe3d.css"
+    ],
+    "assets": [
+      "pexels-leeloothefirst-5386754.944a6b0b.jpg"
     ]
   }
 }
