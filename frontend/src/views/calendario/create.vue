@@ -32,7 +32,7 @@
             <input class="u-full-width" type="text" v-model="evento.ubicacion">
           </div>
         </div>
-        <button class="button-primary" type="submit">Crear</button>
+        <button id="btn" class="button-primary" type="submit">Crear</button>
       </form>
     </div>
   </template>
@@ -117,5 +117,10 @@
 
 #label{
   text-align: center !important;
+}
+
+#btn{
+  width: 21%;
+  padding: 0;
 }
 </style>
