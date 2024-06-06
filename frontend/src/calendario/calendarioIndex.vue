@@ -5,16 +5,15 @@
       <table>
         <thead>
           <tr>
-            <th>titulo</th>
-            <th>descripcion</th>
-            <th>dia</th>
-            <th>mes</th>
-            <th>anio</th>
-            <th>hora_inicio</th>
-            <th>hora_fin</th>
-            <th>ubicacion</th>
-            <th>user_id</th>
-            <th>Actions</th>
+            <th>Titulo</th>
+            <th>Descripcion</th>
+            <th>Dia</th>
+            <th>Mes</th>
+            <th>Año</th>
+            <th>Hora inicio</th>
+            <th>Hora fin</th>
+            <th>Ubicacion</th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
