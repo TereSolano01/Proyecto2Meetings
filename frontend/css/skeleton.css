@@ -204,7 +204,6 @@ input[type="button"].button-primary:focus {
 
 /* Forms
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-input[type="email"],
 input[type="search"],
 input[type="text"],
 input[type="password"],
@@ -217,7 +216,6 @@ select {
   box-shadow: none;
   background: #fff; }
 /* Removes awkard default styles on some inputs */
-input[type="email"],
 input[type="search"],
 input[type="text"],
 textarea {

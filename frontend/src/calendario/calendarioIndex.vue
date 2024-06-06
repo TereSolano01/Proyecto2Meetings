@@ -27,7 +27,6 @@
             <td>{{ calend.hora_inicio }}</td>
             <td>{{ calend.hora_fin }}</td>
             <td>{{ calend.ubicacion }}</td>
-            <td>{{ calend.user_id }}</td>
             <td>
               <router-link class="button" :to="'/calendario/show/' + calend.id">Show</router-link>
               <router-link class="button" :to="'/calendario/edit/' + calend.id">Edit</router-link>

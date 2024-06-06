@@ -1,6 +1,6 @@
 <template>
+      <navbar />
   <div id="app">
-    <navbar />
     <router-view :userId="userId" />
     <FooterComponent />
   </div>

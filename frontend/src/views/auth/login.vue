@@ -1,26 +1,27 @@
 <template>
-  <div>
-    <h4 style="text-align: center; padding-bottom: 3%;">Login Page</h4>
+         <h4>Login Page</h4>
+         <div class="border-bottom"></div>
+  <div id="loginDiv">
     <p v-if="error">User or password invalid. Try Again.</p>
-    <form @submit.prevent="login" style="margin-left: 35%;">
+    <form @submit.prevent="login">
       <div class="row">
         <div class="six columns">
           <label for="email">Email</label>
-          <input v-model="email" class="u-full-width" type="email" name="email" required>
+          <input v-model="email" class="u-full-width" type="email" name="email" placeholder="Escribe tu correo" required>
         </div>
       </div>
       <div class="row">
         <div class="six columns">
           <label for="password">Password</label>
-          <input v-model="password" class="u-full-width" type="password" name="password" required>
+          <input v-model="password" class="u-full-width" type="password" placeholder="Escribe tu contraseña" name="password" required>
         </div>
       </div>
-      <div class="row">
-        <div class="three columns">
-          <input class="button" type="submit" value="Login">
+      <div class="row" style="padding-top: 5%;">
+        <div class="three columns" >
+          <input class="button" type="submit" value="Login" style="width: 16%;">
         </div>
         <div class="three columns">
-          <router-link to="/register" class="button">Registration</router-link>
+          <router-link to="/register" class="button" style="width: 22%;">Registration</router-link>
         </div>
       </div>
     </form>

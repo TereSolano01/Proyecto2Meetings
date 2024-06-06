@@ -93,7 +93,7 @@ form{
 label{
     font-size: x-large;
     color: #0d0c1d;
-    border-bottom: 2px solid #161b33 !important;
+    border-bottom: 2px none #161b33 !important;
 }
 
 input{
