@@ -2,36 +2,36 @@
   <div class="row">
     <div class="eleven column">
       <h2>{{ title }}</h2>
-      <form>
+      <form id="myForm">
         <div class="row">
           <div class="six columns">
-            <label for="tituloInput">Titulo</label>
+            <label id="label" for="tituloInput">Titulo</label>
             <input class="u-full-width" type="text" v-model="calendar.titulo">
           </div>
         </div>
         <div class="row">
           <div class="twelve columns">
-            <label for="descripcionInput">Descripcion</label>
+            <label id="label" for="descripcionInput">Descripcion</label>
             <input class="u-full-width" type="text" v-model="calendar.descripcion">
           </div>
         </div>
         <div class="row">
           <div class="six columns">
-            <label for="fechaInput">Fecha</label>
+            <label id="label" for="fechaInput">Fecha</label>
             <input class="u-full-width" type="date" v-model="fecha" @input="updateFecha">
           </div>
           <div class="six columns">
-            <label for="horaInicioInput">Hora de Inicio</label>
+            <label id="label" for="horaInicioInput">Hora de Inicio</label>
             <input class="u-full-width" type="time" v-model="calendar.hora_inicio">
           </div>
         </div>
         <div class="row">
           <div class="six columns">
-            <label for="horaFinInput">Hora de Fin</label>
+            <label id="label" for="horaFinInput">Hora de Fin</label>
             <input class="u-full-width" type="time" v-model="calendar.hora_fin">
           </div>
           <div class="six columns">
-            <label for="ubicacionInput">Ubicación</label>
+            <label id="label" for="ubicacionInput">Ubicación</label>
             <input class="u-full-width" type="text" v-model="calendar.ubicacion">
           </div>
         </div>
@@ -143,3 +143,14 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+#myForm {
+  width: 35%;
+  margin: 0 auto; 
+}
+
+#label{
+  text-align: center !important;
+}
+</style>
