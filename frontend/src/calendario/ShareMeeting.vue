@@ -137,11 +137,13 @@ async shareMeeting() {
     console.log('Información de la reunión compartida:', meetingData);
 
     const response = await axios.post('https://calendarmeetings.000webhostapp.com/server/calendario', meetingData);
-    
+
     if (response.data && response.data.message) {
   alert('Reunión compartida con éxito');
+  this.$router.push('/calendario');
 } else {
   console.error('Error al compartir la reunión:', response.data);
+  window.location.href = '/calendario';
 }
 
   } catch (error) {
