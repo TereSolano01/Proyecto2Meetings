@@ -4,7 +4,6 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
-// Manejo de las solicitudes OPTIONS (Preflight)
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(204);
     exit();
@@ -62,6 +61,60 @@ class CalendarioController extends Controller {
     } else {
         http_response_code(500);
         return ['error' => 'Failed to delete Calendario'];
+    }
+  }
+
+  private function getUserByEmail($email) {
+    $apiUrl = 'https://calendarmeetings.000webhostapp.com/server/user';
+    $users = file_get_contents($apiUrl);
+    $users = json_decode($users, true);
+
+    foreach ($users as $user) {
+        if ($user['email'] === $email) {
+            return (object) $user;
+        }
+    }
+    return null;
+  }
+
+  public function shareMeeting($request = NULL) {
+    if (!$request || !isset($request['email']) || !isset($request['calendar_id'])) {
+        http_response_code(400);
+        return ['error' => 'Invalid request'];
+    }
+
+    $email = $request['email'];
+    $calendarId = $request['calendar_id'];
+
+    $user = $this->getUserByEmail($email);
+    if (!$user) {
+        http_response_code(404);
+        return ['error' => 'User not found'];
+    }
+
+    $originalMeeting = Calendario::find($calendarId);
+    if (!$originalMeeting) {
+        http_response_code(404);
+        return ['error' => 'Meeting not found'];
+    }
+
+    $newMeeting = [
+        'titulo' => $originalMeeting->titulo,
+        'descripcion' => $originalMeeting->descripcion,
+        'dia' => $originalMeeting->dia,
+        'mes' => $originalMeeting->mes,
+        'anio' => $originalMeeting->anio,
+        'hora_inicio' => $originalMeeting->hora_inicio,
+        'hora_fin' => $originalMeeting->hora_fin,
+        'ubicacion' => $originalMeeting->ubicacion,
+        'user_id' => $user->id
+    ];
+    
+    if (Calendario::create($newMeeting)) {
+        return ['message' => 'Meeting shared successfully'];
+    } else {
+        http_response_code(500);
+        return ['error' => 'Failed to share meeting'];
     }
   }
 }

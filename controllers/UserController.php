@@ -23,5 +23,9 @@ class UserController extends Controller {
   public function destroy($id) {  
     return User::destroy($id);
   }
+
+  public function where($email,$value){
+    return User::where($email,$value);
+  }
 }
 ?>

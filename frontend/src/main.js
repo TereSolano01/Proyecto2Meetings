@@ -21,7 +21,7 @@ import calendarioDetails from './calendario/calendarioDetails.vue';
 import calendarioCreate from './views/calendario/create.vue';
 import login from './views/auth/login.vue';
 import registration from './views/auth/registration.vue';
-import ShareMeeting from './calendario/ShareMeeting.vue'; // Importar el nuevo componente
+import ShareMeeting from './calendario/ShareMeeting.vue'; 
 
 const routes = [
   { path: '/professor', component: professorIndex, props: true },
@@ -34,7 +34,7 @@ const routes = [
   { path: '/calendario/edit/:id', component: calendarioDetails, props: { edit: true } },
   { path: '/calendario/create', component: calendarioCreate, props: { create: true } },
   { path: '/calendario/delete/:id', component: calendarioDetails, props: { delete: true } },
-  { path: '/calendario/share/:id', component: ShareMeeting, props: true }, // Nueva ruta para compartir reuniones
+  { path: '/calendario/share/:id', component: ShareMeeting, props: true }, 
   { path: '/login', component: login, props: { props: false } },
   { path: '/register', component: registration, props: { props: true } },
   { path: '/', component: home, props: true },
