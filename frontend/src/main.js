@@ -30,6 +30,7 @@ const routes = [
   { path: '/login', component: login, props: { props: false } },
   { path: '/register', component: registration, props: { props: true } },
   { path: '/', component: home, props: true },
+  { path: '/home', component: home, props: true },
 ];
 
 const router = createRouter({
