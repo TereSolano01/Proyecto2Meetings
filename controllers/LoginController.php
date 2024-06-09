@@ -15,7 +15,7 @@ public function login() {
   
   error_log("Login attempt with email: $email and password: $password");
 
-  $url = 'https://meetingscalendar.000webhostapp.com/server/user';
+  $url = 'https://calendarmeetings.000webhostapp.com/server/user';
   $users = $this->getUsersFromAPI($url);
 
   error_log("Users fetched from API: " . print_r($users, true));

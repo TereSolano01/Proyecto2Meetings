@@ -55,7 +55,7 @@ export default {
   methods: {
     async allCalendario() {
       try {
-        const response = await axios.get('https://meetingscalendar.000webhostapp.com/server/calendario', {
+        const response = await axios.get('https://calendarmeetings.000webhostapp.com/server/calendario', {
           headers: { 'Accept': 'application/json' },
         });
         const userId = localStorage.getItem('userId');
@@ -76,7 +76,7 @@ export default {
       http2: false
     });
 
-    const response = await axios.delete(`https://meetingscalendar.000webhostapp.com/server/calendario/${id}`, {
+    const response = await axios.delete(`https://calendarmeetings.000webhostapp.com/server/calendario/${id}`, {
       headers: {
         'Content-Type': 'application/json',
       },

@@ -64,7 +64,7 @@ export default {
   async mounted() {
     const eventId = this.$route.params.id;
     try {
-      const response = await axios.get(`https://meetingscalendar.000webhostapp.com/server/calendario/${eventId}`);
+      const response = await axios.get(`https://calendarmeetings.000webhostapp.com/server/calendario/${eventId}`);
       if (response.data && response.data.length > 0) {
         this.evento = response.data[0];
       } else {

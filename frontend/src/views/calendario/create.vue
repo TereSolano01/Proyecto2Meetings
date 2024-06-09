@@ -72,7 +72,7 @@
       const userId = parseInt(localStorage.getItem('userId'));
 
         try {
-          const response = await axios.post('https://meetingscalendar.000webhostapp.com/server/calendario', {
+          const response = await axios.post('https://calendarmeetings.000webhostapp.com/server/calendario', {
             titulo: this.evento.titulo,
             descripcion: this.evento.descripcion,
             dia: dia,

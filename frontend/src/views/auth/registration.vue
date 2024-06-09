@@ -45,7 +45,7 @@ export default {
       this.error = '';
       this.success = '';
       try {
-        const response = await axios.post('https://meetingscalendar.000webhostapp.com/server/user', {
+        const response = await axios.post('https://calendarmeetings.000webhostapp.com/server/user', {
           name: this.name,
           email: this.email,
           password: this.password

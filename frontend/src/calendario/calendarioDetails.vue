@@ -38,6 +38,7 @@
         <router-link class="button button-primary" to="/calendario">Back</router-link>
         <a v-if='edit' class="button button-primary" style="float: right" v-on:click="updateCalendario">Update</a>
         <a v-if='create' class="button button-primary" style="float: right" v-on:click="createCalendario">Create</a>
+        <button v-if='show' class="button button-primary" style="margin-top: 10px;" @click="shareMeeting">Share Meeting</button>
       </form>
     </div>
   </div>
@@ -78,7 +79,7 @@ export default {
   },
   methods: {
     fetchCalendario(id) {
-      axios.get(`https://meetingscalendar.000webhostapp.com/server/calendario/${id}`)
+      axios.get(`https://calendarmeetings.000webhostapp.com/server/calendario/${id}`)
         .then(response => {
           if (Array.isArray(response.data) && response.data.length > 0) {
             this.calendar = response.data[0];
@@ -93,7 +94,7 @@ export default {
     async updateCalendario() {
       const eventId = this.$route.params.id;
       try {
-        const response = await axios.put(`https://meetingscalendar.000webhostapp.com/server/calendario/${eventId}`, {
+        const response = await axios.put(`https://calendarmeetings.000webhostapp.com/server/calendario/${eventId}`, {
           titulo: this.calendar.titulo,
           descripcion: this.calendar.descripcion,
           dia: this.calendar.dia,
@@ -125,7 +126,7 @@ export default {
       const userId = parseInt(localStorage.getItem('userId'));
 
         try {
-          const response = await axios.post('https://meetingscalendar.000webhostapp.com/server/calendario', {
+          const response = await axios.post('https://calendarmeetings.000webhostapp.com/server/calendario', {
             titulo: this.evento.titulo,
             descripcion: this.evento.descripcion,
             dia: dia,
@@ -170,6 +171,10 @@ export default {
       if (this.calendar.anio && this.calendar.mes && this.calendar.dia) {
         this.fecha = `${this.calendar.anio}-${String(this.calendar.mes).padStart(2, '0')}-${String(this.calendar.dia).padStart(2, '0')}`;
       }
+    },
+
+    shareMeeting() {
+      this.$router.push({ path: `/calendario/share/${this.calendar.id}`, props: { calendar: this.calendar } });
     }
   }
 }

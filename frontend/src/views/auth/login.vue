@@ -45,7 +45,7 @@ export default {
   methods: {
     async login() {
       try {
-        const response = await axios.get('https://meetingscalendar.000webhostapp.com/server/user', {
+        const response = await axios.get('https://calendarmeetings.000webhostapp.com/server/user', {
           headers: {
             'Accept': 'application/json'
           }
